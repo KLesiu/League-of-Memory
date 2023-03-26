@@ -1,0 +1,11 @@
+header{
+    
+    text-align: center;
+    width: 80%;
+}
+h1{
+    color:gold;
+    font-size: 60px;
+    margin-left: 25%;
+    text-shadow: 2px 2px 5px gold;
+}

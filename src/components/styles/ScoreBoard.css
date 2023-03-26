@@ -1,0 +1,13 @@
+.scoreDiv{
+    align-items: center;
+    border: 1px solid blue;
+    color: goldenrod;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 19%;
+}
+h2{
+    width: 80%;
+}
