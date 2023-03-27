@@ -4,5 +4,14 @@ body{
 .App{
     display: flex;
     flex-wrap: wrap;
-    width: 100vw;
+    justify-content: center;
+    width: 100%;
+}
+.gameboard{
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5%;
+    width: 80%;
 }
