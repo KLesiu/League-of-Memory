@@ -12,6 +12,8 @@ function App() {
   const [start,setStart]=useState(false)
   const [counter,setCounter]=useState(0)
   const [pickedChamp,setPickedChamp]=useState([])
+  const [checkPicked,setCheckPick]=useState([])
+  const [currentChamp,setCurrentChamp]=useState('')
   
   useEffect(()=>{
 
@@ -76,8 +78,7 @@ function App() {
   }
 
 function handleClick(champ){
-  console.log(pickedChamp)
-  
+
   if(pickedChamp.includes(champ)){
     
     setScore(()=>0)
@@ -85,6 +86,7 @@ function handleClick(champ){
     return console.log('powtórka')
   }
   change()
+  setCurrentChamp(champ)
     setPickedChamp((prev)=>[...prev,champ])
     setScore((prev)=>prev+1)
   
@@ -92,9 +94,9 @@ function handleClick(champ){
   
 }
 useEffect(()=>{
-  for(let i=0;i<pickedChamp.length;i++){
-    if(pickedChamp.includes(pickedChamp[i],pickedChamp.indexOf[pickedChamp[i]]+1)) console.log('zle')
-  }
+  if(checkPicked.includes(currentChamp)) console.log('powtorka')
+ setCheckPick(pickedChamp)
+ 
 },[pickedChamp])
   return (
     <div className="App">
