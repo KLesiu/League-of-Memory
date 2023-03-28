@@ -79,29 +79,41 @@ function App() {
 
 function handleClick(champ){
 
-  if(pickedChamp.includes(champ)){
-    
-    setScore(()=>0)
-    setPickedChamp(()=>[])
-    return console.log('powtórka')
-  }
+  
   change()
   setCurrentChamp(champ)
     setPickedChamp((prev)=>[...prev,champ])
     setScore((prev)=>prev+1)
-  
+    
   
   
 }
 useEffect(()=>{
-  if(checkPicked.includes(currentChamp)) console.log('powtorka')
+  if(checkPicked.includes(currentChamp)){
+    
+    setBestScore(()=>{
+      if(bestScore>score) return bestScore
+      else if(score===0) return 0
+      else return score-1
+    }
+     )
+    setScore(0)
+    setList([])
+    setPickedChamp([])
+    setCurrentChamp('')
+    setCheckPick([])
+    setStart(false)
+    setCounter(0)
+  } 
+    
+  
  setCheckPick(pickedChamp)
  
 },[pickedChamp])
   return (
     <div className="App">
       <Header/>
-      <Scoreboard score={score}/>
+      <Scoreboard bestScore={bestScore} score={score}/>
       <div  className='gameboard'>
       {list}
       
