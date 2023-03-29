@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 body{
     background-color: black;
+    font-family: 'Montserrat', sans-serif;
 }
 .App{
     display: flex;
@@ -14,4 +16,19 @@ body{
     justify-content: center;
     padding: 5%;
     width: 80%;
+}
+.switchLevel{
+    background: none;
+   border: 1px solid gold;
+   border-radius: 5px;
+    color: red;
+    cursor: pointer;
+    height: 30px;
+    left: 62%;
+    top: 48%;
+    position: absolute;
+    width: 3%;
+}
+.switchLevel:hover{
+    color: green;
 }

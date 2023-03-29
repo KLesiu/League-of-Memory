@@ -3,6 +3,8 @@ import './App.css';
 import Header from './components/Header';
 import Scoreboard from './components/Scoreboard';
 import Card from './components/Card';
+import Levels from './components/Levels';
+import uniqid from 'uniqid'
 
 function App() {
   
@@ -14,7 +16,29 @@ function App() {
   const [pickedChamp,setPickedChamp]=useState([])
   const [checkPicked,setCheckPick]=useState([])
   const [currentChamp,setCurrentChamp]=useState('')
-  
+  const [begin,setBegin]=useState(0)
+  const [level,setLevel]=useState(1)
+  const [allChamp,setAllChamp]=useState([])
+
+
+
+  const getLevel=()=>{
+    setBegin(2)
+    console.log(list)
+    
+//     let arrayChamp;
+   
+// if(level===1){
+//   arrayChamp=allChamp.slice(0,10)
+//   setList(arrayChamp)
+//  arrayChamp.map((element)=>{
+//   return(
+       
+//     <Card key={uniqid()} image={element.props.image} name={element.props.name}   handleClick={handleClick} />
+//   )
+//  })
+// }
+  }
   useEffect(()=>{
 
     fetch('http://ddragon.leagueoflegends.com/cdn/13.6.1/data/en_US/champion.json').then(res=> res.json()).then((response)=>{
@@ -22,10 +46,11 @@ function App() {
       const champions=dataList.map((element)=>{
         return(
           
-          <Card image={response.data[element].image.full}  name={element} handleClick={handleClick} />
+          <Card key={uniqid()} image={response.data[element].image.full}  name={element} handleClick={handleClick} />
         )
       })
-      setList(champions)
+      setList(champions.slice(0,10))
+      setAllChamp(champions)
       
     
    
@@ -42,31 +67,49 @@ function App() {
     if(counter===0){
       setStart(false)
     }
-    setCounter(1)
+    
     
     let currentIndex=[]
     let arr=[]
-    for(let i=0;i<163;i++){
-      let numb=Math.floor(Math.random()*163)
-    
-      
+    if(level===1){
+      for(let i=0;i<10;i++){
+        let numb=Math.floor(Math.random()*10)
+
+
         while(currentIndex.includes(numb)){
-          numb=Math.floor(Math.random()*163)
-      
+          numb=Math.floor(Math.random()*10)
+
         }
         currentIndex.push(numb)
-      arr.push(list[numb])
+        arr.push(list[numb])
+      }
+    } 
+    
 
+    else if(list.length===163){
+      for(let i=0;i<163;i++){
+        let numb=Math.floor(Math.random()*163)
+      
+        
+          while(currentIndex.includes(numb)){
+            numb=Math.floor(Math.random()*163)
+        
+          }
+          currentIndex.push(numb)
+        arr.push(list[numb])
+  
+      }
     }
+    
     if(arr.includes(undefined)){
-     alert('Good luck!')
+     console.log('undefineddd')
     }else{
       
-     
+     console.log(arr)
    const newChampions= arr.map((element=>{
       return(
           
-        <Card image={element.props.image} name={element.props.name}   handleClick={handleClick} />
+        <Card key={uniqid()} image={element.props.image} name={element.props.name}   handleClick={handleClick} />
       )
     }))
     
@@ -79,7 +122,7 @@ function App() {
 
 function handleClick(champ){
 
-  
+ 
   change()
   setCurrentChamp(champ)
     setPickedChamp((prev)=>[...prev,champ])
@@ -98,11 +141,10 @@ useEffect(()=>{
     }
      )
     setScore(0)
-    setList([])
+    // setList([])
     setPickedChamp([])
     setCurrentChamp('')
     setCheckPick([])
-    setStart(false)
     setCounter(0)
   } 
     
@@ -110,18 +152,50 @@ useEffect(()=>{
  setCheckPick(pickedChamp)
  
 },[pickedChamp])
+
+if(begin===0){
   return (
     <div className="App">
       <Header/>
       <Scoreboard bestScore={bestScore} score={score}/>
       <div  className='gameboard'>
-      {list}
-      
+     
+      <button onClick={()=>{
+        setBegin(1)
+        setCounter(1)
+      }}>START</button>
    
       </div>
      
     </div>
   );
+}
+else if(begin===1){
+  return (
+    <div className="App">
+      <Header/>
+      <Scoreboard bestScore={bestScore} score={score}/>
+      <div  className='gameboard'>
+      <Levels  lvl={level} />
+      <button onClick={getLevel} className='switchLevel'>GO!</button>
+      </div>
+     
+    </div>
+  );
+}
+return (
+  <div className="App">
+    <Header/>
+    <Scoreboard bestScore={bestScore} score={score}/>
+    <div  className='gameboard'>
+   
+   {list}
+ 
+    </div>
+   
+  </div>
+);
+ 
 }
 
 export default App;
