@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Scoreboard from './components/Scoreboard';
 import Card from './components/Card';
 import Levels from './components/Levels';
+import Win from './components/Win';
 import uniqid from 'uniqid'
 
 function App() {
@@ -247,7 +248,12 @@ else if(begin===1){
   );
 }
 else if(begin===2){
-
+ return(
+  <div className='App'>
+    <Header/>
+    <Win />
+  </div>
+ )
 }
 return (
   <div className="App">
