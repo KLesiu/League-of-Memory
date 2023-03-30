@@ -24,10 +24,7 @@ function App() {
 
   const getLevel=()=>{
     setBegin(2)
-    
-    if(level===2){
-      setList(allChamp.slice(0,30))
-    }
+ 
 
   }
   useEffect(()=>{
@@ -42,6 +39,8 @@ function App() {
       })
       if(level===1) setList(champions.slice(0,10))
       else if(level===2) setList(champions.slice(0,30))
+      else if(level===3) setList(champions.slice(0,60))
+      else if(level===4) setList(champions)
 
       setAllChamp(champions)
       
@@ -55,7 +54,6 @@ function App() {
   },[start])
  
   const change=()=>{
-console.log(list)
     if(counter===0){
       setStart(false)
     }
@@ -76,8 +74,8 @@ console.log(list)
         arr.push(list[numb])
       }
     }
-    if(level===2){
-      console.log('lvl 2')
+   else if(level===2){
+      const helpArray=allChamp.slice(0,30)
       for(let i=0;i<30;i++){
         let numb=Math.floor(Math.random()*30)
 
@@ -87,12 +85,26 @@ console.log(list)
 
         }
         currentIndex.push(numb)
-        arr.push(list[numb])
+        arr.push(helpArray[numb])
+      }
+    } 
+   else if(level===3){
+      const helpArray=allChamp.slice(0,60)
+      for(let i=0;i<60;i++){
+        let numb=Math.floor(Math.random()*60)
+
+
+        while(currentIndex.includes(numb)){
+          numb=Math.floor(Math.random()*60)
+
+        }
+        currentIndex.push(numb)
+        arr.push(helpArray[numb])
       }
     } 
     
 
-    else if(list.length===163){
+    else if(level===4){
       for(let i=0;i<163;i++){
         let numb=Math.floor(Math.random()*163)
       
@@ -108,7 +120,7 @@ console.log(list)
     }
     
     if(arr.includes(undefined)){
-      alert('Good luck!')
+      return
     }else{
       
    const newChampions= arr.map((element=>{
@@ -138,9 +150,8 @@ function handleClick(champ){
   
 }
 useEffect(()=>{
-  
   if(checkPicked.includes(currentChamp)){
-    
+
     setBestScore(()=>{
       if(bestScore>score) return bestScore
       else if(score===0) return 0
@@ -148,11 +159,10 @@ useEffect(()=>{
     }
      )
     setScore(0)
-    // setList([])
     setPickedChamp([])
     setCurrentChamp('')
     setCheckPick([])
-    setCounter(0)
+    
   } 
     
   
@@ -172,6 +182,39 @@ if(pickedChamp.length===10&&level===1){
   setLevel(2)
   setStart(false)
 }
+else if(pickedChamp.length===30&&level===2){
+  setBegin(1)
+  setBestScore(0)
+  setScore(0)
+  setList([])
+  setCurrentChamp('')
+  setPickedChamp([])
+  setCheckPick([])
+  setLevel(3)
+  setStart(false)
+}
+else if(pickedChamp.length===60&&level===3){
+  setBegin(1)
+  setBestScore(0)
+  setScore(0)
+  setList([])
+  setCurrentChamp('')
+  setPickedChamp([])
+  setCheckPick([])
+  setLevel(4)
+  setStart(false)
+}
+else if(pickedChamp.length===163&&level===4){
+  setBegin(2)
+  setBestScore(0)
+  setScore(0)
+  setList([])
+  setCurrentChamp('')
+  setPickedChamp([])
+  setCheckPick([])
+  setLevel(1)
+  setStart(false)
+}
 },[pickedChamp])
 if(begin===0){
   return (
@@ -180,7 +223,7 @@ if(begin===0){
       <Scoreboard bestScore={bestScore} score={score}/>
       <div  className='gameboard'>
      
-      <button onClick={()=>{
+      <button className='buttonStart' onClick={()=>{
         setBegin(1)
         setCounter(1)
       }}>START</button>
@@ -202,6 +245,9 @@ else if(begin===1){
      
     </div>
   );
+}
+else if(begin===2){
+
 }
 return (
   <div className="App">

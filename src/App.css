@@ -32,3 +32,20 @@ body{
 .switchLevel:hover{
     color: green;
 }
+.buttonStart{
+    background-color: gold;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    font-size: 50px;
+    font-weight: 700;
+    height: 100px;
+    margin-top: 10%;
+    text-shadow: 3px 2px 0px;
+    width: 15%;
+}
+.buttonStart:hover{
+    background-color: green;
+    color: black;
+}
