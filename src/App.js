@@ -24,20 +24,11 @@ function App() {
 
   const getLevel=()=>{
     setBegin(2)
-    console.log(list)
     
-//     let arrayChamp;
-   
-// if(level===1){
-//   arrayChamp=allChamp.slice(0,10)
-//   setList(arrayChamp)
-//  arrayChamp.map((element)=>{
-//   return(
-       
-//     <Card key={uniqid()} image={element.props.image} name={element.props.name}   handleClick={handleClick} />
-//   )
-//  })
-// }
+    if(level===2){
+      setList(allChamp.slice(0,30))
+    }
+
   }
   useEffect(()=>{
 
@@ -49,7 +40,9 @@ function App() {
           <Card key={uniqid()} image={response.data[element].image.full}  name={element} handleClick={handleClick} />
         )
       })
-      setList(champions.slice(0,10))
+      if(level===1) setList(champions.slice(0,10))
+      else if(level===2) setList(champions.slice(0,30))
+
       setAllChamp(champions)
       
     
@@ -62,8 +55,7 @@ function App() {
   },[start])
  
   const change=()=>{
-
-
+console.log(list)
     if(counter===0){
       setStart(false)
     }
@@ -78,6 +70,20 @@ function App() {
 
         while(currentIndex.includes(numb)){
           numb=Math.floor(Math.random()*10)
+
+        }
+        currentIndex.push(numb)
+        arr.push(list[numb])
+      }
+    }
+    if(level===2){
+      console.log('lvl 2')
+      for(let i=0;i<30;i++){
+        let numb=Math.floor(Math.random()*30)
+
+
+        while(currentIndex.includes(numb)){
+          numb=Math.floor(Math.random()*30)
 
         }
         currentIndex.push(numb)
@@ -102,10 +108,9 @@ function App() {
     }
     
     if(arr.includes(undefined)){
-     console.log('undefineddd')
+      alert('Good luck!')
     }else{
       
-     console.log(arr)
    const newChampions= arr.map((element=>{
       return(
           
@@ -127,11 +132,13 @@ function handleClick(champ){
   setCurrentChamp(champ)
     setPickedChamp((prev)=>[...prev,champ])
     setScore((prev)=>prev+1)
+
     
   
   
 }
 useEffect(()=>{
+  
   if(checkPicked.includes(currentChamp)){
     
     setBestScore(()=>{
@@ -152,7 +159,20 @@ useEffect(()=>{
  setCheckPick(pickedChamp)
  
 },[pickedChamp])
-
+useEffect(()=>{
+if(pickedChamp.length===10&&level===1){
+ 
+  setBegin(1)
+  setBestScore(0)
+  setScore(0)
+  setList([])
+  setCurrentChamp('')
+  setCheckPick([])
+  setPickedChamp([])
+  setLevel(2)
+  setStart(false)
+}
+},[pickedChamp])
 if(begin===0){
   return (
     <div className="App">
