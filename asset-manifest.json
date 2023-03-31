@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/League-of-Memory/static/css/main.967a32ed.css",
-    "main.js": "/League-of-Memory/static/js/main.ff34248f.js",
+    "main.css": "/League-of-Memory/static/css/main.77821ea8.css",
+    "main.js": "/League-of-Memory/static/js/main.06a45470.js",
     "static/media/cup.png": "/League-of-Memory/static/media/cup.1491564dd102fb0d50d4.png",
     "index.html": "/League-of-Memory/index.html",
-    "main.967a32ed.css.map": "/League-of-Memory/static/css/main.967a32ed.css.map",
-    "main.ff34248f.js.map": "/League-of-Memory/static/js/main.ff34248f.js.map"
+    "main.77821ea8.css.map": "/League-of-Memory/static/css/main.77821ea8.css.map",
+    "main.06a45470.js.map": "/League-of-Memory/static/js/main.06a45470.js.map"
   },
   "entrypoints": [
-    "static/css/main.967a32ed.css",
-    "static/js/main.ff34248f.js"
+    "static/css/main.77821ea8.css",
+    "static/js/main.06a45470.js"
   ]
 }
