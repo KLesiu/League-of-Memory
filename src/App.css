@@ -49,6 +49,13 @@ body{
     background-color: green;
     color: black;
 }
+footer{
+    color: gold;
+    font-size: 12px;
+    margin-top: 18%;
+    width: 80%;
+    text-align: center;
+}
 @media screen and (max-width:600px) {
     .App{
         width: 100vw;
@@ -60,6 +67,10 @@ body{
         top: 70%;
         width: 20%;
         
+    }
+    footer{
+        font-size: 10px;
+        margin-top: 30%;
     }
     
 }

@@ -217,7 +217,6 @@ else if(pickedChamp.length===163&&level===4){
   setStart(false)
 }
 },[pickedChamp])
-console.log(begin)
 if(begin===0){
   return (
     <div className="App">
@@ -231,7 +230,7 @@ if(begin===0){
       }}>START</button>
    
       </div>
-     
+     <footer>League of Memory was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.</footer>
     </div>
   );
 }
@@ -244,7 +243,7 @@ else if(begin===1){
       <Levels  lvl={level} />
       <button onClick={getLevel} className='switchLevel'>GO!</button>
       </div>
-     
+      <footer>League of Memory was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.</footer>
     </div>
   );
 }
@@ -254,7 +253,7 @@ else if(begin===2){
     <Header/>
     <Scoreboard />
     <Win />
-  
+    <footer>League of Memory was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.</footer>
   </div>
  )
 }
@@ -267,7 +266,7 @@ return (
    {list}
  
     </div>
-   
+    <footer>League of Memory was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.</footer>
   </div>
 );
  
