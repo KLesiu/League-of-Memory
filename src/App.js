@@ -24,7 +24,7 @@ function App() {
 
 
   const getLevel=()=>{
-    setBegin(2)
+    setBegin(3)
  
 
   }
@@ -217,6 +217,7 @@ else if(pickedChamp.length===163&&level===4){
   setStart(false)
 }
 },[pickedChamp])
+console.log(begin)
 if(begin===0){
   return (
     <div className="App">
@@ -251,7 +252,9 @@ else if(begin===2){
  return(
   <div className='App'>
     <Header/>
+    <Scoreboard />
     <Win />
+  
   </div>
  )
 }

@@ -9,3 +9,12 @@ h1{
     margin-left: 25%;
     text-shadow: 2px 2px 5px gold;
 }
+@media screen and (max-width:600px) {
+    header{
+        width: 100%;
+    }
+    h1{
+        margin-left: 0;
+        margin-bottom: 5%;
+    }
+}

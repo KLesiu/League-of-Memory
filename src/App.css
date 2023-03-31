@@ -49,3 +49,17 @@ body{
     background-color: green;
     color: black;
 }
+@media screen and (max-width:600px) {
+    .App{
+        width: 100vw;
+    }
+    .buttonStart{
+        width: 60%;
+    }
+    .switchLevel{
+        top: 70%;
+        width: 20%;
+        
+    }
+    
+}

@@ -15,3 +15,8 @@
     font-size: 35px;
     padding-bottom: 20px;
 }
+@media screen and (max-width:600px) {
+    .lvlBoard{
+        width: 90%;
+    }
+}

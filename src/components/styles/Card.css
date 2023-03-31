@@ -31,3 +31,8 @@ width: 100%;
 .card h3:hover{
     background-color: rgba(0, 0, 0, 0.034);
 }
+@media screen and (max-width:600px) {
+ .card{
+    width: 25%;
+ }   
+}
