@@ -19,15 +19,15 @@ body{
 }
 .switchLevel{
     background: none;
-   border: 1px solid gold;
-   border-radius: 5px;
+    border: 1px solid gold;
+    border-radius: 5px;
     color: red;
     cursor: pointer;
-    height: 30px;
-    left: 62%;
-    top: 48%;
+    height: 50px;
+    left: 80%;
     position: absolute;
-    width: 3%;
+    top: 48%;
+    width: 10%;
 }
 .switchLevel:hover{
     color: green;
@@ -64,7 +64,8 @@ footer{
         width: 60%;
     }
     .switchLevel{
-        top: 70%;
+        left: 41%;
+        top: 90%;
         width: 20%;
         
     }

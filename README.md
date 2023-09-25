@@ -1,1 +1,4 @@
 ## You can see it here: https://klesiu.github.io/League-of-Memory/
+
+# Description:
+This project is about one of my favourites games, I mean League of legends. I created it using ReactJs and official Riot Games API for developers. The main goal of the game is to click on all the heroes displayed on the screen. The most difficult thing is that you can only click on each hero once, during the game the board changes the order of the heroes every click. When we click on all of them, we will be redirected to the next stage of the game, but when we click on a given hero a second time, the game will reset the result and we will have to start over!
